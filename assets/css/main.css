@@ -249,7 +249,8 @@ blockquote {
 }
 
 code {
-    background: rgba(144, 144, 144, 0.25);
+    background: rgb(87, 87, 87);
+    color: #fff8f8;
     border-radius: 3px;
     font-family: "Courier New", monospace;
     font-size: 0.9em;
@@ -3168,7 +3169,7 @@ button:disabled,
 }
 
 .wrapper.style5 code {
-    background: rgba(0, 0, 0, 0.0375);
+   /* background: rgba(0, 0, 0, 0.0375);*/
 }
 
 .wrapper.style5 header p {

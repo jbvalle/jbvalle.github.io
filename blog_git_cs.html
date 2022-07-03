@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>JBV | My Blog</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <meta name="author" content="John Bryan Valle" />
+        <meta name="keywords" content="microcontrollers, electronics, software, hardware, developement, programming" />
+        <link rel="icon" type="x-icon" href="favicon.ico">
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1><a href="index.html">John Bryan Valle</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li class="special">
+                            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                            <div id="menu">
+                                <ul>
+                                    <li><a href="index.html">About</a></li>
+                                    <li><a href="projects.html">Projects</a></li>
+                                    <li><a href="projects.html">Blog</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+                <header>
+                    <h2>Git Cheat Sheet</h2>
+                    <!--<p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p>-->
+                </header>
+                <section class="wrapper style5">
+                    <div class="inner">
+
+                        <p class="has-line-data" data-line-start="0" data-line-end="1"><code>$ git init</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="1" data-line-end="2">initializing new local repo</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="3" data-line-end="4"><code>$ git status</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="4" data-line-end="5">shows modified files in local repo</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="6" data-line-end="7"><code>$ git log</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="7" data-line-end="8">shows previous commits</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="9" data-line-end="10"><code>$ git add &quot;file&quot;: example: git add robot.java</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="10" data-line-end="11">puts file on stage</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="12" data-line-end="13"><code>$ git add .</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="13" data-line-end="14">stages all files in the path</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="15" data-line-end="16"><code>$ git commit -m &quot;massage&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="16" data-line-end="17">commits all staged files</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="18" data-line-end="19"><code>$ git checkout &quot;hash&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="19" data-line-end="20">change to previous commits</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="21" data-line-end="22"><code>$ git checkout &quot;spec. branch&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="22" data-line-end="23">change to spec. branch</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="24" data-line-end="25"><code>$ git branch</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="25" data-line-end="26">check out branches</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="27" data-line-end="28"><code>$ git branch &quot;branch name&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="28" data-line-end="29">create new branch</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="30" data-line-end="31"><code>$ git branch -d &quot;newbranch&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="31" data-line-end="32">remove branch</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="33" data-line-end="34"><code>$ git merge &quot;Branch_that_should_be_merged&quot;</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="34" data-line-end="35">Merges current branch with Branch_that_should_be_merged</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="36" data-line-end="37"><code>$ git remote add 'remote_repo_name' 'your_url_name'</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="37" data-line-end="38">add remote repo</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="39" data-line-end="40"><code>$ git remote remove origin</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="40" data-line-end="41">remove remote repo</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="42" data-line-end="43"><code>$ git remote -v</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="43" data-line-end="44">shows remote repos</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="45" data-line-end="46"><code>$ git push -u 'remote_repo' 'branch'</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="46" data-line-end="47">pushes local repo to remote repo</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="48" data-line-end="49"><code>$ git pull 'remote__repo_name' 'branch_name'</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="49" data-line-end="50">pulls remote repo to local</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="51" data-line-end="52"><code>$ git pull 'remote__repo_name' 'branch_name' --allow-unrelated-histories</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="52" data-line-end="53">pulls remote repo to local --BY FORCE</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="54" data-line-end="55"><code>$ git clone 'HTTPS_Link_repo'</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="55" data-line-end="56">clones remote repo to current dir</p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="57" data-line-end="58"><code>$ git pull</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="58" data-line-end="60">after clone -&gt; pull request<br>
+                            updates current cloning
+                            </p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="61" data-line-end="62"><code>$ git checkout --track origin/BRANCH'</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="62" data-line-end="66">Pull remote branch to local machine<br>
+                            Branch doesnt have to be created locally<br>
+                            depending on git version, slight differences possible<br>
+                            lookup: <a href="https://stackoverflow.com/questions/9537392/git-fetch-remote-branch">https://stackoverflow.com/questions/9537392/git-fetch-remote-branch</a>
+                            </p>
+                        </blockquote>
+                        <p class="has-line-data" data-line-start="67" data-line-end="68"><code>$ git log --graph --pretty=oneline --abbrev-commit</code></p>
+                        <blockquote>
+                            <p class="has-line-data" data-line-start="68" data-line-end="69">Display git log in graph like fashion</p>
+                        </blockquote>
+                    </div>
+                </section>
+            </article>
+            <!-- Footer -->
+
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://twitter.com/JbvalleJv" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/johnbryanvalle/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/jbvalle" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="mailto:jbvalle.jv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; John Bryan Valle</li>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
