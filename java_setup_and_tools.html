@@ -63,45 +63,133 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Markdown File Start -->
+
+                        <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Important_Terms_0"></a>Important Terms:</h1>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Term</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Java Compiler</td>
+                                    <td>Translates .java code into bytecode</td>
+                                </tr>
+                                <tr>
+                                    <td>Bytecode</td>
+                                    <td>.class file an instruction set of the java virtual machine</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Virtual Machine</td>
+                                    <td>Reads bytecode and interprets it into the instruction set / binary code of the computer</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Developement Kit</td>
+                                    <td>Collection of programs (Tools &amp; Utensils), javac, JVM, libraries which allow the compilation and execution</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Platform / Edition</td>
+                                    <td>Basically a system consisting its on OS like JDK</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Runtime Environment</td>
+                                    <td>A subset of JDK that only interprets the .class file</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Process</td>
+                                    <td>A Process running on Java Virtual Machine</td>
+                                </tr>
+                                <tr>
+                                    <td>PID</td>
+                                    <td>Stands for process identification number on Unix Systems. A unique PID is automatically assigned to every process created.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h1 class="code-line" data-line-start=12 data-line-end=13><a id="Java_Editions_1_12"></a>Java Editions <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h1>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Editions</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Java Platform Standard Edition (Java SE)</td>
+                                    <td>This includes JVM, JCL, and other tools and utilities.</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Platform Enterprise Edition (Java EE)</td>
+                                    <td>This includes Java SE, servers (computer programs that provide services to the applications), JCL and other libraries, code samples, tutorials, and other documentation for developing and deploying large-scale, multi-tiered, and secure network applications.</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Platform Micro Edition (Java ME)</td>
+                                    <td>This is a subset of Java SE with some specialized libraries for developing and deploying Java applications for embedded and mobile devices such as phones, personal digital assistants, TV set-top boxes, printers, sensors, and similar. A variation of Java ME (with its own JVM implementation) is called Android SDK. It was developed by Google for Android programming.</td>
+                                </tr>
+                                <tr>
+                                    <td>Java Card</td>
+                                    <td>It’s the smallest of the Java editions and is intended for developing and deploying Java applications on to small embedded devices such as smart cards. It has two editions: Java Card Classic Edition, for smart cards, based on ISO7816 and ISO14443 communication, and Java Card Connected Edition, which supports a web application model and TCP/IP as basic protocol and runs on high-end secure microcontrollers.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3 class="code-line" data-line-start=21 data-line-end=22><a id="_21"></a></h3>
+                        <h1 class="code-line" data-line-start=23 data-line-end=24><a id="Required_Tools_23"></a>Required Tools</h1>
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="1_Install_on_Arch_Linux_25"></a>1. Install on Arch Linux</h2>
+                        <h3 class="code-line" data-line-start=27 data-line-end=28><a id="Java_Runtime_Environment_27"></a>Java Runtime Environment</h3>
+                        <pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
+                        </code></pre>
+                        <h3 class="code-line" data-line-start=32 data-line-end=33><a id="Software_Developement_Kit_Java_Developement_Kit__JDK_32"></a>Software Developement Kit (Java Developement Kit - JDK)</h3>
+                        <pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
+                        </code></pre>
+                        <h1 class="code-line" data-line-start=38 data-line-end=39><a id="Most_Important_Java_Command_Line_tools_38"></a>Most Important Java Command Line tools</h1>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>javac <strong>‘file.java’</strong></td>
+                                    <td>Creates a compiled version .class file</td>
+                                </tr>
+                                <tr>
+                                    <td>java ‘file.class’</td>
+                                    <td>interprets / Executes file.class</td>
+                                </tr>
+                                <tr>
+                                    <td>jcmd</td>
+                                    <td>Facilitates communication and diagnosis of any running Java processes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr class="footnotes-sep">
+                        <section class="footnotes">
+                            <ol class="footnotes-list">
+                                <li id="fn1" class="footnote-item"><p class="has-line-data" data-line-start="55" data-line-end="56">Learn Java 12 Programming, Author: Nick Samoylov <a href="#fnref1" class="footnote-backref">↩</a></p>
+                                </li>
+                            </ol>
+                        </section>
+                        <!-- Markdown File End -->
                     </div>
                 </section>
-                <!-- END: OVERVIEW -->
-
-                <!-- START: PROJECT PRESENTATION 
-                    <section id="two" class="wrapper alt style2">
-                    <section class="spotlight">
-                    </section>
-                    </section>
-                    END: PROJECT PRESENTATION -->
-                    <!-- Picture and Text 
-                        <section class="wrapper style5">
-                        <div class="inner">
-
-                        <section>
-                        <section>
-                        <h5>Left &amp; Right</h5>
-                        <p><span class="image left"><img src="images/pic04.jpg" alt="" /></span>Morb neque ipsum. Integer eget ult
-                        ricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-                        <p><span class="image right"><img src="images/pic05.jpg" alt="" /></span>Veshoncus justo. Duis neque ligula, elementum ut enim vel
-                        , posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. 
-                        Proin mauris dui.</p>
-                        </section>
-                        </section>
-                        </div>
-                        </article> -->
-
-                        <!-- Footer -->
-                        <footer id="footer">
-                            <ul class="icons">
-                                <li><a href="https://twitter.com/JbvalleJv" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                <li><a href="https://www.linkedin.com/in/johnbryanvalle/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                <li><a href="https://github.com/jbvalle" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                                <li><a href="mailto:jbvalle.jv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                            </ul>
-                            <ul class="copyright">
-                                <li>&copy; John Bryan Valle</li>
-                            </ul>
-                        </footer>
+                <!-- Footer -->
+                <footer id="footer">
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/JbvalleJv" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/johnbryanvalle/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        <li><a href="https://github.com/jbvalle" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                        <li><a href="mailto:jbvalle.jv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>&copy; John Bryan Valle</li>
+                    </ul>zo
+                </footer>
         </div>
 
         <!-- Scripts -->
@@ -118,13 +206,5 @@
 
 
 
-    <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
-    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
-
-    <!-- Load the element definition -->
-    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-
-    <!-- Simply set the `src` attribute to your MD file and win -->
-    <zero-md src="./220705_jblog.md"></zero-md>
 
 </html>
