@@ -1,4 +1,4 @@
-.PHONE=
+.PHONE=update launch
 
 all: update
 
