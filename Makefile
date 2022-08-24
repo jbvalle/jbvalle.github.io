@@ -11,3 +11,5 @@ launch: FORCE
 	firefox index.html
 
 FORCE:
+
+.PHONY = update launch FORCE
