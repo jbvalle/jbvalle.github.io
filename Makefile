@@ -1,5 +1,3 @@
-.PHONE=update launch
-
 all: update
 
 update: FORCE
