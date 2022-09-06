@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>JBV | My Projects</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Page Wrapper -->
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <h1><a href="index.html">John Bryan Valle</a></h1>
+            </header>
+
+            <!-- Main -->
+            <article id="main">
+                <header>
+                    <h2>Control System</h2>
+                </header>
+
+
+                <!-- PROJECT PRESENTATION -->
+            
+
+                <section class="wrapper style5">
+                    <div class="inner">
+
+                        <section>
+                            <h5>Desk Light (Local)</h5>
+                            <div class="row">
+                                <div class="col-6 col-12-medium">
+                                    <ul class="actions">
+                                        <li><a href="javascript:Conn()" class="button primary">ON</a></li>
+                                        <li><a href="#" class="button">OFF</a></li>
+                                    </ul>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h5>Desk Light (Public)</h5>
+                            <div class="row">
+                                <div class="col-6 col-12-medium">
+                                    <ul class="actions">
+                                        <li><a href="#" class="button primary">ON</a></li>
+                                        <li><a href="#" class="button">OFF</a></li>
+                                    </ul>
+                            </div>
+                        </section>
+            </article>
+
+            <!-- Footer -->
+
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://twitter.com/JbvalleJv" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/johnbryanvalle/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/jbvalle" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="mailto:jbvalle.jv@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; John Bryan Valle</li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+            function Conn(){
+
+                            chrome.experimental.socket.create('tcp', '192.168.0.32', 50000, function(socketInfo) {
+                                            chrome.experimental.socket.connect(socketInfo.socketId, function (result) {
+                                                            chrome.experimental.socket.write(socketInfo.socketId, "Hello, world!");         
+                                                        });
+                                        });
+
+
+            }
+
+        </script>
+
+    </body>
+</html>
