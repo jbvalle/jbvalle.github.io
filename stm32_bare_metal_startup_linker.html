@@ -17,6 +17,16 @@
 
             <!-- Header -->
             <header id="header" class="main-header">
+    <style>
+      .box {
+        width: 100%;
+        height: 100%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
                 <h1><a href="index.html">John Bryan Valle</a></h1>
                 <!--<img src="images/jbv_logo.png" alt="Banner Image" />-->
                 <nav id="nav">
@@ -68,6 +78,10 @@
                                 <tr>
                                     <td><a href="#arm-gnu-toolchain">ARM-GNU-Toolchain</td>
                                     <td>Explanation of GNU-Toolchain and on-chip debugging and flashing </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#OpenOCD">OpenOCD</td>
+                                    <td>Explanation debugging and flashing using OpenOCD</td>
                                 </tr>
                                 <tr>
                                     <td><a href="#startup">Startup</td>
@@ -147,6 +161,15 @@
                                         <td>~0x55 = 0xAA // is used to invert individual bits 
 </td>
                                     </tr>
+                                    <tr>
+                                        <td>Shift Left</td>
+                                        <td>0b0001 << 3 = 0b1000 // 1 has shifted 3 positions to the left
+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shift Right</td>
+                                        <td>0b1000 >> 3 = 0b0001 // 1 has shifted 3 positions to the write</td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -154,11 +177,26 @@
                             <h1 class="code-line" data-line-start=23 data-line-end=24><a id="Required_Tools_23"></a>Required Tools</h1>
                             <h3 class="code-line" data-line-start=27 data-line-end=28><a id="Java_Runtime_Environment_27"></a>Java Runtime Environment</h3>
                         -->
-                            <pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
-                            </code></pre>
-                            <h3 class="code-line" data-line-start=32 data-line-end=33><a id="Software_Developement_Kit_Java_Developement_Kit__JDK_32"></a>Software Developement Kit (Java Developement Kit - JDK)</h3>
-                            <pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
-                            </code></pre>
+
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="arm-gnu-toolchain">ARM-GNU-Toolchain</a></h2>
+The GNU Toolchain is a collection of programming tools produced by the GNU Project. It’s used to turn source code into executables.It is a powerful tool that is completely free and highly portable. It includes the GNU Compiler Collection (GCC), the GNU Debugger (GDB), and further binaries and tools that are well-maintained.</br>
+The ARM GNU Toolchain is a collection of these tools specialized for ARM - Chips. The flow diagram below illustrates how the ARM-GNU Toolchain compiles source files into a finished executable.</br>
+<div class="box">
+<img src="images/arm-gnu-toolchain.png">
+</div>
+
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="OpenOCD">OpenOCD</a></h2>
+                        There are multiple ways for debugging and flashing the finished executable onto the chip, however, in this example, the free open-source on-chip debugger OpenOCD is used. The following flow diagram illustrates how OpenOCD flashes and debugs the executable on the chip.</br>
+<div class="box">
+<img src="images/arm-gnu-toolchain-flashing.png">
+</div>
+
+
+                            <!--<pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
+                            </code></pre>-->
+
+                            <!--<pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
+                            </code></pre>-->
                             <h1 class="code-line" data-line-start=38 data-line-end=39><a id="Most_Important_Java_Command_Line_tools_38"></a>Most Important Java Command Line tools</h1>
                             <hr class="footnotes-sep">
                             <section class="footnotes">
