@@ -58,31 +58,31 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Introduction</td>
+                                    <td><a href="#intro_reg_lev">Introduction</td>
                                     <td>Introduction to bare-metal register-level programming of STM32</td>
                                 </tr>
                                 <tr>
-                                    <td>Bitwise Operators</td>
+                                    <td><a href="#Bitwise_operators">Bitwise Operators</td>
                                     <td>Basics of bitwise operators and compound operators</td>
                                 </tr>
                                 <tr>
-                                    <td>ARM-GNU-Toolchain</td>
+                                    <td><a href="#arm-gnu-toolchain">ARM-GNU-Toolchain</td>
                                     <td>Explanation of GNU-Toolchain and on-chip debugging and flashing </td>
                                 </tr>
                                 <tr>
-                                    <td>Startup</td>
+                                    <td><a href="#startup">Startup</td>
                                     <td>Step-by-step walk through of a basic startup file for a STM32 board</td>
                                 </tr>
                                 <tr>
-                                    <td>Linker Script</td>
+                                    <td><a href="#linker_script">Linker Script</td>
                                     <td>Step-by-step walk through of a basic linker script for a STM32 board</td>
                                 </tr>
                                 <tr>
-                                    <td>Makefile</td>
+                                    <td><a href="#makefile">Makefile</td>
                                     <td>Step-by-step walk through of a basic Makefile for a STM32 board</td>
                                 </tr>
                                 <tr>
-                                    <td>Blinky-Project</td>
+                                    <td><a href="#blinky">Blinky-Project</td>
                                     <td>This section describes the register-level programming for creating a blink project</td>
                                 </tr>
                             </tbody>
@@ -90,7 +90,7 @@
 
                         <!-- Markdown File Start -->
 
-                        <h2 class="code-line" data-line-start=0 data-line-end=1><a id="Important_Terms_0"></a>Introduction</h2>
+                        <h2 class="code-line" data-line-start=0 data-line-end=1><a id="intro_reg_lev"></a>Introduction</h2>
                         Suppose you’ve ever wondered how to set up a bare metal register level C program for developing embedded systems without an IDE or libraries such as HAL or any other abstractions. In that case, this blog post is for you! First, let’s define what register-level programming is and why you would want to use this approach.</br></br>
                         Register-level programming is  low-level programming where operations are carried out directly on the hardware registers of a processor. This is in contrast to the higher-level programming approach, which is done by applying modifications using abstractions such as functions and objects. There are numerous reasons why you would want to program at the register level:</br></br></br>
 
@@ -106,53 +106,67 @@
                         Still it’s important to keep some disadvantages in mind using this approach:</br></br>
                         <ol>
                             <li>First, it can be very difficult to debug register level code, as it is hard to read and follow the logic of the code,
-</li>
+                            </li>
                             <li>Second, it can be dangerous, as it’s easy to make mistakes and even damage the hardware</li>
                         </ol>  
-                        Though register level programming can be difficult as it requires proficient knowledge about the hardware, it can be very rewarding as you can get maximum out of your embedded system.</br>
+                        Though register level programming can be difficult as it requires proficient knowledge about the hardware, it can be very rewarding as you can get maximum out of your embedded system.</br></br>
+                        
+                        To get started some requirements are:</br>
+                        1. A good development board, ie. from ST, Texas Instruments or Arduino, etc. (The board used in this example is STM32F401RE)</br>
+                        2. A compiler and an assembler (The compiler used in this example is arm-none-eabi-gcc source: https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain)</br></br>
 
-                                        
-                        <h3 class="code-line" data-line-start=21 data-line-end=22><a id="_21"></a></h3>
+                        These tools will allow us to write and compile code. Furthermore, register-level programming also requires knowledge of how to use bitwise operations. Bitwise operators perform bit-level modifications to integer-type values. Those operators are AND, OR, and XOR, which can be used to set, clear, toggle or invert individual bits. These operators can be very powerful, but also somewhat confusing. The following section provides a quick overview of the most important applications of these operators.</br></br>
 
-                        <h1 class="code-line" data-line-start=23 data-line-end=24><a id="Required_Tools_23"></a>Required Tools</h1>
-                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="1_Install_on_Arch_Linux_25"></a>1. Install on Arch Linux</h2>
-                        <h3 class="code-line" data-line-start=27 data-line-end=28><a id="Java_Runtime_Environment_27"></a>Java Runtime Environment</h3>
-                        <pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
-                        </code></pre>
-                        <h3 class="code-line" data-line-start=32 data-line-end=33><a id="Software_Developement_Kit_Java_Developement_Kit__JDK_32"></a>Software Developement Kit (Java Developement Kit - JDK)</h3>
-                        <pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
-                        </code></pre>
-                        <h1 class="code-line" data-line-start=38 data-line-end=39><a id="Most_Important_Java_Command_Line_tools_38"></a>Most Important Java Command Line tools</h1>
-                        <table class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Command</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>javac <i>file.java</i></td>
-                                    <td>Creates a compiled version .class file</td>
-                                </tr>
-                                <tr>
-                                    <td>java classname</td>
-                                    <td>interprets / Executes file.class</td>
-                                </tr>
-                                <tr>
-                                    <td>jcmd</td>
-                                    <td>Facilitates communication and diagnosis of any running Java processes</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr class="footnotes-sep">
-                        <section class="footnotes">
-                            <ol class="footnotes-list">
-                                <li id="fn1" class="footnote-item"><p class="has-line-data" data-line-start="55" data-line-end="56">Learn Java 12 Programming, Author: Nick Samoylov <a href="#fnref1" class="footnote-backref">↩</a></p>
-                                </li>
-                            </ol>
-                        </section>
-                        <!-- Markdown File End -->
+
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="Bitwise_operators">Bitwise Operators</a></h2>
+                        
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Operator</th>
+                                        <th>Examples</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ANDing</td>
+                                        <td>0x2F & 0x10 = 0x20 // is used to clear individual bits
+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORing</td>
+                                        <td>0x50 | 0x11 = 0x51 // is used to set individual bits
+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>XORing</td>
+                                        <td>0x01 ^ 0x11 = 0x10 // is used to toggle individual bits</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inverting / NOT</td>
+                                        <td>~0x55 = 0xAA // is used to invert individual bits 
+</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        <!--
+                            <h1 class="code-line" data-line-start=23 data-line-end=24><a id="Required_Tools_23"></a>Required Tools</h1>
+                            <h3 class="code-line" data-line-start=27 data-line-end=28><a id="Java_Runtime_Environment_27"></a>Java Runtime Environment</h3>
+                        -->
+                            <pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
+                            </code></pre>
+                            <h3 class="code-line" data-line-start=32 data-line-end=33><a id="Software_Developement_Kit_Java_Developement_Kit__JDK_32"></a>Software Developement Kit (Java Developement Kit - JDK)</h3>
+                            <pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
+                            </code></pre>
+                            <h1 class="code-line" data-line-start=38 data-line-end=39><a id="Most_Important_Java_Command_Line_tools_38"></a>Most Important Java Command Line tools</h1>
+                            <hr class="footnotes-sep">
+                            <section class="footnotes">
+                                <ol class="footnotes-list">
+                                    <li id="fn1" class="footnote-item"><p class="has-line-data" data-line-start="55" data-line-end="56">Learn Java 12 Programming, Author: Nick Samoylov <a href="#fnref1" class="footnote-backref">↩</a></p>
+                                    </li>
+                                </ol>
+                            </section>
                     </div>
                 </section>
                 <!-- Footer -->
