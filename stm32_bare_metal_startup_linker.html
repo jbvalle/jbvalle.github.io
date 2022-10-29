@@ -17,16 +17,16 @@
 
             <!-- Header -->
             <header id="header" class="main-header">
-    <style>
-      .box {
-        width: 100%;
-        height: 100%;
-      }
+                <style>
+.box {
+    width: 100%;
+    height: 100%;
+}
       img {
-        width: 100%;
-        height: 100%;
+          width: 100%;
+          height: 100%;
       }
-    </style>
+                </style>
                 <h1><a href="index.html">John Bryan Valle</a></h1>
                 <!--<img src="images/jbv_logo.png" alt="Banner Image" />-->
                 <nav id="nav">
@@ -128,7 +128,7 @@
                             <li>Second, it can be dangerous, as it’s easy to make mistakes and even damage the hardware</li>
                         </ol>  
                         Though register level programming can be difficult as it requires proficient knowledge about the hardware, it can be very rewarding as you can get maximum out of your embedded system.</br></br>
-                        
+
                         To get started some requirements are:</br>
                         1. A good development board, ie. from ST, Texas Instruments or Arduino, etc. (The board used in this example is STM32F401RE)</br>
                         2. A compiler and an assembler (The compiler used in this example is arm-none-eabi-gcc source: <a href="https://developer.arm.com/Tools%20and%20Software/GNU%20Toolchain" target="_blank">Click here</a>)</br></br>
@@ -137,45 +137,45 @@
 
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="Bitwise_operators">Bitwise Operators</a></h2>
-                        
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Operator</th>
-                                        <th>Examples</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>ANDing</td>
-                                        <td>0x2F & 0x10 = 0x20 // is used to clear individual bits
-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ORing</td>
-                                        <td>0x50 | 0x11 = 0x51 // is used to set individual bits
-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>XORing</td>
-                                        <td>0x01 ^ 0x11 = 0x10 // is used to toggle individual bits</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Inverting / NOT</td>
-                                        <td>~0x55 = 0xAA // is used to invert individual bits 
-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shift Left</td>
-                                        <td>0b0001 << 3 = 0b1000 // 1 has shifted 3 positions to the left
-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Shift Right</td>
-                                        <td>0b1000 >> 3 = 0b0001 // 1 has shifted 3 positions to the write</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Operator</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ANDing</td>
+                                    <td>0x2F & 0x10 = 0x20 // is used to clear individual bits
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ORing</td>
+                                    <td>0x50 | 0x11 = 0x51 // is used to set individual bits
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>XORing</td>
+                                    <td>0x01 ^ 0x11 = 0x10 // is used to toggle individual bits</td>
+                                </tr>
+                                <tr>
+                                    <td>Inverting / NOT</td>
+                                    <td>~0x55 = 0xAA // is used to invert individual bits 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Shift Left</td>
+                                    <td>0b0001 << 3 = 0b1000 // 1 has shifted 3 positions to the left
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Shift Right</td>
+                                    <td>0b1000 >> 3 = 0b0001 // 1 has shifted 3 positions to the write</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <!--
                             <h1 class="code-line" data-line-start=23 data-line-end=24><a id="Required_Tools_23"></a>Required Tools</h1>
@@ -183,57 +183,59 @@
                         -->
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="arm-gnu-toolchain">ARM-GNU-Toolchain</a></h2>
-The GNU Toolchain is a collection of programming tools produced by the GNU Project. It’s used to turn source code into executables.It is a powerful tool that is completely free and highly portable. It includes the GNU Compiler Collection (GCC), the GNU Debugger (GDB), and further binaries and tools that are well-maintained.</br>
-The ARM GNU Toolchain is a collection of these tools specialized for ARM - Chips. The flow diagram below illustrates how the ARM-GNU Toolchain compiles source files into a finished executable.</br>
-<div class="box">
-<img src="images/arm-gnu-toolchain.png">
-</div>
+                        The GNU Toolchain is a collection of programming tools produced by the GNU Project. It’s used to turn source code into executables.It is a powerful tool that is completely free and highly portable. It includes the GNU Compiler Collection (GCC), the GNU Debugger (GDB), and further binaries and tools that are well-maintained.</br>
+                        The ARM GNU Toolchain is a collection of these tools specialized for ARM - Chips. The flow diagram below illustrates how the ARM-GNU Toolchain compiles source files into a finished executable.</br>
+                        <div class="box">
+                            <img src="images/arm-gnu-toolchain.png">
+                        </div>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="OpenOCD">OpenOCD</a></h2>
                         There are multiple ways for debugging and flashing the finished executable onto the chip, however, in this example, the free open-source on-chip debugger OpenOCD is used. The following flow diagram illustrates how OpenOCD flashes and debugs the executable on the chip.</br>
-<div class="box">
-<img src="images/arm-gnu-toolchain-flashing.png">
-</div>
+                        <div class="box">
+                            <img src="images/arm-gnu-toolchain-flashing.png">
+                        </div>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="linker_script">Linker - Script</a></h2>
                         <div class="box">
-                        <img src="images/Linker_script_memory.png">
+                            <img src="images/Linker_script_memory.png">
                         </div>
                         <div class="box">
-                        <img src="images/Linker_script_memory.png">
+                            <img src="images/Linker_script_memory.png">
                         </div>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="startup">Startup File</a></h2>
                         <div class="box">
-                        <img src="images/prototypes.png">
+                            <img src="images/prototypes.png">
                         </div>
                         <div class="box">
-                        <img src="images/vector_table.png">
+                            <img src="images/vector_table.png">
                         </div>
                         <div class="box">
-                        <img src="images/reset_handler.png">
+                            <img src="images/reset_handler.png">
                         </div>
-                        
-                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="share_repo"></a></h2>
-                        If you're interested in seeing how this project was made, please check out the source code and documentation. All the code is available for you to view, and the documentation goes into detail about how everything works. Thanks for your interest!
 
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="share_repo">Code and Documentation</a></h2>
+                        If you're interested in seeing how this project was made, please check out the source code and documentation. All the code is available for you to view, and the documentation goes into detail about how everything works. Thanks for your interest!</br></br>
+
+                        <div class="col-12">
                             <ul class="actions special">
                                 <li><a href="https://github.com/jbvalle/011_bare_metal_STM32F401RE_basic_setup" class="button primary">Github</a></li>
                                 <li><a href="https://jbvalle.github.io/011_bare_metal_STM32F401RE_basic_setup/" class="button">Documentation</a></li>
                             </ul>
-                            <!--<pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
-                            </code></pre>-->
+                        </div>
+                        <!--<pre><code class="has-line-data" data-line-start="30" data-line-end="32" class="language-sh">sudo pacman -S jre-openjdk
+                        </code></pre>-->
 
-                            <!--<pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
-                            </code></pre>
-                            
-                            <section class="footnotes">
-                                <ol class="footnotes-list">
-                                    <li id="fn1" class="footnote-item"><p class="has-line-data" data-line-start="55" data-line-end="56">Learn Java 12 Programming, Author: Nick Samoylov <a href="#fnref1" class="footnote-backref">↩</a></p>
-                                    </li>
-                                </ol>
-                            </section>
-                            -->
+                        <!--<pre><code class="has-line-data" data-line-start="35" data-line-end="37" class="language-sh">sudo pacman -S jdk-openjdk
+                        </code></pre>
+
+                        <section class="footnotes">
+                            <ol class="footnotes-list">
+                                <li id="fn1" class="footnote-item"><p class="has-line-data" data-line-start="55" data-line-end="56">Learn Java 12 Programming, Author: Nick Samoylov <a href="#fnref1" class="footnote-backref">↩</a></p>
+                                </li>
+                            </ol>
+                        </section>
+                        -->
                     </div>
                 </section>
                 <!-- Footer -->
