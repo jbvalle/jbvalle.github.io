@@ -400,6 +400,10 @@
                         </table>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="makefile">Makefile</a></h2>
+                        A makefile is a file that contains a set of instructions that tell a computer how to compile and link a program. In embedded systems, a makefile is often used to build a firmware image. A firmware image is a binary file that contains all of the code and data necessary to run a piece of hardware. In embedded systems, this binary file is often stored in flash memory. When you create a new project, you will typically start with a blank makefile. 
+
+
+                        <h5>The following code contains the actual code of the startup file used in this example:</h5>
 
                         <div class="box">
                             <img src="images/makefile_1.png">
@@ -413,6 +417,38 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>[Line:2]</td>
+                                    <td>Here we assign the CC macro with the name of the arm cross compiler</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:5-9]</td>
+                                    <td>This macros are used to assign names to the directories used in this project. This is specific to this example and can be configured to suit the project's needs.</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:12-13]</td>
+                                    <td>Using the wildcard feature of "make" we assign all the c file names to one single macro, which we can later use during compilation</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:14-15]</td>
+                                    <td>Here the values assigned to the SRC macros are substituted with a .o exten using the patsubst feature. Furthermore, its file paths have been changed with that of the directory make for object files. This also is specific to this project.</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -484,17 +520,18 @@ If you're working on register level programming for an embedded system, one thin
                         <div class="box">
                             <img src="images/gpio_struct.png">
                         </div>
-                        Now that the registers have been initialized, an instance of that struct can be assigned a fixed address from the system's memory, defined in the reference manual. A possible method is by instantiate a struct pointer which is then assigned with an address, as illustrated by the following code:
+                        Now that the registers have been initialized, an instance of that struct can be assigned a fixed address from the system's memory, defined in the reference manual. A possible method is to instantiate a struct pointer which is then assigned an address, as illustrated by the following code:
                         <pre>
                             <code>STRUCT_NAME * const defined_instance = (STRUCT_NAME *) ADDRESS;</code>
                         </pre>
-                        To instantiate the GPIO Peripheral from the previously shown GPIOx_t using the this method, we can now write:
+                        To instantiate the GPIO Peripheral from the previously shown GPIOx_t using this method, we can now write:
                         <pre>
                             <code>GPIOx_t * const GPIOA = (GPIOx_t *)0x40020000; // This address is specific to STM32F401RE</code>
                         </pre>
-                        This code instantiates a struct pointers with the pointer being constant, meaning the address should not be changed. The value of the address the pointer is pointing too however can be accessed and manipulated, which is what we want for our purposes.
+This code instantiates struct pointers with the pointer being constant, meaning the address should not be changed. However, the value of the address the pointer is pointing to can be accessed and manipulated, which is what we want for our purposes.
+                        </br></br>
 
-
+                        <h5>The following code contains the actual code of the startup file used in this example:</h5>
                         <div class="box">
                             <img src="images/simple_blink_proj_main.png">
                         </div>
@@ -523,6 +560,10 @@ If you're working on register level programming for an embedded system, one thin
                                 <tr>
                                     <td>[Line:9-13]</td>
                                     <td>This is a simple delay function implementation generating an approximately 1ms delay every 1600 Clock Cycles with a 16MHz internal clock, which can generating the desired ms delay by looping the inner-for-loop by the amount of times certain ms are passed to the function</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:21]</td>
+                                    <td>One of the great features of the STM32 is its clock gating feature, which allows peripherals to save power when they are not in use. In a nutshell, clock gating is a power-saving technique that stops the clock signal to a particular circuit when that circuit is not in use. This prevents the circuit from wasting power by doing unnecessary work. In order to enable that peripheral we need to enable it using the Reset Clock Control Peripheral of the microcontroller. Using the AHB1ENR Register GPIOA is enabled by writing a 1 to that specific bit associated with that peripheral.</td>
                                 </tr>
                             </tbody>
                         </table>
