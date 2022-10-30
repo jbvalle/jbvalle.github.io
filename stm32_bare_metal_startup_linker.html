@@ -400,6 +400,35 @@
                             <img src="images/simple_blink_proj_main.png">
                         </div>
 
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Description of the code above:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[Line:1]</td>
+                                    <td>The macro pin5 is later used to configure and manipulate the Pin 5 of GPIOA</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:2]</td>
+                                    <td>The MODER Register is part of the GPIO Port which is later used to configure a pin either input, output or even assign an alternate function. As the width of MODER is a 2 Bit Bitfield, this value is used for a more readable code</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:5-6]</td>
+                                    <td>Here struct pointers of the RCC Peripheral (used to handle Clock Enabling in this example) and GPIOA Port is initialized and assigned with their associated fixed addresses in memory (This can be looked up in the reference manual under the "memory map" section)</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:9-13]</td>
+                                    <td>This is a simple delay function implementation generating an approximately 1ms delay every 1600 Clock Cycles with a 16MHz internal clock, which can generating the desired ms delay by looping the inner-for-loop by the amount of times certain ms are passed to the function</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="share_repo">Code and Documentation</a></h2>
                         If you're interested in seeing how this project was made, please check out the source code and documentation. All the code is available for you to view, and the documentation goes into detail about how everything works. Thanks for your interest!</br></br>
 
