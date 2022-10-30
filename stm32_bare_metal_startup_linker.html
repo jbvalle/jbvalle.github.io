@@ -400,7 +400,9 @@
                         </table>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="makefile">Makefile</a></h2>
-                        A makefile is a file that contains a set of instructions that tell a computer how to compile and link a program. In embedded systems, a makefile is often used to build a firmware image. A firmware image is a binary file that contains all of the code and data necessary to run a piece of hardware. In embedded systems, this binary file is often stored in flash memory. When you create a new project, you will typically start with a blank makefile. 
+                        A makefile is a file that contains a set of instructions that tell a computer how to compile and link a program. In embedded systems, a makefile is often used to build a firmware image. A firmware image is a binary file that contains all of the code and data necessary to run a piece of hardware. In embedded systems, this binary file is often stored in flash memory. When you create a new project, you will typically start with a blank makefile. </br></br></br>
+
+
 
 
                         <h5>The following code contains the actual code of the startup file used in this example:</h5>
@@ -434,24 +436,8 @@
                                     <td>Here the values assigned to the SRC macros are substituted with a .o exten using the patsubst feature. Furthermore, its file paths have been changed with that of the directory make for object files. This also is specific to this project.</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td>[Line:16]</td>
+                                    <td>Lastly the macro LD is used to hold the name of our linker script</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -468,6 +454,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>[Line:19]</td>
+                                    <td>The MARCH macro is the processor used for this project. This will later be used during compilation</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:20]</td>
+                                    <td>These are the flags used during compilation. -g is used to generate debugging information. -Wall is an option used by the compiler to generate warnings. -mcpu and -mthumb tell the compiler which cpu is used and that thumb instructions are used. -mfloat-abi=soft tells the compiler, that floating functionalities will be enabled by a software implementation. -I tells the compiler where to look for include files, in this project this is used, as the Peripherals have been implemented using structs which are placed in the include directory.</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:21]</td>
+                                    <td>These are the linker flags. -nostdlib means no standard library functions are used that need to be linked. -T tells the linker where to search for the linker script. -Wl, tells the linker that linker options are being passed. -Map is used to generate a map file of the executable which is very helpful for debugging purposes.</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:24-25]</td>
+                                    <td>These are the paths to the openOCD scripts used to tell openOCD how to connect and communicate with the on chip ST-Link V2 debugger, as well as the debugger unit on the STM32F401RE.</td>
+                                </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
@@ -487,6 +489,34 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>[Line:28]</td>
+                                    <td>The TARGET is the macro used for our ELF executable</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:30]</td>
+                                    <td>In case "make" is executed by the default all files and targets specified after this keyword will be generated</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:32-36]</td>
+                                    <td>These are makefile rules, telling make to generate object files using the c source files. If the Object file directory is not present, the "mkobj" target is called which will create a directory needed for compilation</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
