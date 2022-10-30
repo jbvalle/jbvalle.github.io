@@ -200,9 +200,55 @@
                         <div class="box">
                             <img src="images/Linker_script_memory.png">
                         </div>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>The code above defines:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[Line:1] the first entry point of the microcontroller, the reset_handler which handles the main hardware and software initializations</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:4] the top address of the stack, this is required by the manufacturer</td>
+                                </tr>
+                                <tr>
+                                    <td>[Line:7] as well as the actual memory section. This section defines that RAM memory has read | write | execute rights, with a starting address at 0x20000000 with a total size of 96KB. Additionally FLASH is defined to have read | execute rights, with a starting address at 0x08000000 and a total size of 512KB. All these information is specific to the STM32F401RE microcontroller.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <div class="box">
-                            <img src="images/Linker_script_memory.png">
+                            <img src="images/linker_script_sections.png">
                         </div>
+
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Description of the code above:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[Line:4] Thi</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="startup">Startup File</a></h2>
                         <div class="box">
