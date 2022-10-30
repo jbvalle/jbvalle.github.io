@@ -194,16 +194,11 @@
                         <div class="box">
                             <img src="images/arm-gnu-toolchain-flashing.png">
                         </div>
+                        OpenOCD needs scripts for the target(ie. microcontroller) and interface(ie. debugger) because it uses an embedded debugger to communicate with the target device. The debugger needs to know how to interface with the target device in order to properly communicate with it. The scripts provide this information to the debugger. The following code will later be used in order to debug and flash the program onto the microcontroller.
+                        <pre>
+                            <code>$ openocd -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/openocd/scripts/target/stm32f4x.cfg</code>
+                        </pre>
 
-                        <pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-  print 'Iteration ' + i;
-  deck.shuffle();
-  i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="linker_script">Linker - Script</a></h2>
                         The purpose of the linker script is to link together various pieces of code and data to form a complete executable. Its role is to provide the necessary runtime environment for the system to function properly. In order to write a linker script the GNU linker script language is used, which is actually a subset of the C programming language.</br></br>
                         The linker itself is a program integrated in the GNU Compiler Collection (GCC), which utilizes the linker script to determine how to map the contents of an executable file into memory. It controls the memory layout of an executable, including where in memory the executable’s code and data are placed. Additionally, it controls the linking process itself.
@@ -220,7 +215,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         </div>
 
 
-                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="">The following code contains the actual code of the linker script used in this example:</a></h2>
+                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="text">The following code contains the actual code of the linker script used in this example:</a></h3>
 
                         <div class="box">
                             <img src="images/Linker_script_memory.png">
@@ -330,7 +325,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                             </tbody>
                         </table> 
 
-                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="">The following code contains the actual code of the startup file used in this example:</a></h2>
+                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="">The following code contains the actual code of the startup file used in this example:</a></h3>
                         <div class="box">
                             <img src="images/prototypes.png">
                         </div>
@@ -482,6 +477,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         </table>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="blinky">Blinky - Project</a></h2>
+If you're working on register level programming for an embedded system, one thing you might want to consider is using struct pointers that are assigned with fixed addresses. This can be helpful in a number of ways. For one, it can make your code more readable. When you're working with a lot of registers, it can be difficult to keep track of what each one is used for. But if you give each register a meaningful name and then access it through a pointer, it can be much easier to understand what your code is doing. Another advantage is that it can make your code more efficient. If you know the address of a register, you can directly access it without having to go through any intermediate steps. This can be a significant speed boost, especially if you're working with time-critical code.
+
+</br></br></br>A peripheral can be defined using a struct with each of its registers initialized as the struct's members. The following code is the struct data structure of the STM32F401RE GPIO Peripheral.
+
                         <div class="box">
                             <img src="images/simple_blink_proj_main.png">
                         </div>
