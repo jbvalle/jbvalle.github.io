@@ -242,26 +242,33 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Description of the code above:</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:2] This is the Region Section, which tells the linker which parts of the code should be linked together</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:4] The Code Sections which are associated with the .isr_vector symbol will be linked together and placed in the FLASH memory</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:9] The Code Sections associated with .text and .rodata are linked together, meaning the actual code and read only memory such as constants will be placed in the .text memory section in FLASH</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:19] This Line writes the starting address of the .data section into the symbol _sidata, this is lated used to copy the data section from FLASH to RAM</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:21] All .data sections, meaning all initialized global and local static variables will be placed in a united .data section. Line 29 tells the linker that during loading .data will be placed in the FLASH and later in the SRAM memory during runtime. Additionally _sdata and edata are initialized denoting the staring and ending address of .data, which are are lated used in the reset handler to copy data from FLASH to RAM.</td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>[Line:31] All .bss sections, meaning all uninitialized global and local variables will be linked together in a .bss section in SRAM. Additionally _sbss and ebss are initialized denoting the staring and ending address of .bss, which are are lated used in the reset handler to initialized previously uninitialized values with zero.</td>
                                 </tr>
                             </tbody>
@@ -316,15 +323,18 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Description of the code above:</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>[Line:2-7] Here the symbol names taken from the linker script are initialized. These will later be used in the reset handler.</td>
+                                    <td>[Line:2-7]</td>
+                                    <td>Here the symbol names taken from the linker script are initialized. These will later be used in the reset handler.</td>
                                 </tr>
                                 <tr>
-                                    <td>[Line:10-20] The prototypes used to call main as well as the interrupt handlers of the microcontroller are initialized. These are documented in Reference Manual of the STM32F401RE. If the Interrupt Handlers are not initialized with a customized Handler, a default handler will be called instead.</td>
+                                    <td>[Line:10-20] </td>
+                                    <td>The prototypes used to call main as well as the interrupt handlers of the microcontroller are initialized. These are documented in Reference Manual of the STM32F401RE. If the Interrupt Handlers are not initialized with a customized Handler, a default handler will be called instead.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -336,12 +346,14 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Description of the code above:</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>[Line:2] Here the array of function pointers are initialized using the section attribute. This will tell the compiler to place the array in the .isr_vector memory section in FLASH.</td>
+                                    <td>[Line:2]</td>
+                                    <td>Here the array of function pointers are initialized using the section attribute. This will tell the compiler to place the array in the .isr_vector memory section in FLASH.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -353,24 +365,36 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Description of the code above:</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>[Line:4-5] Here pSRC is assigned the starting address of data and pDST is assigned the ending address of data. Notice that an ampersand symbol is used for the symbols. This is due to the fact that the symbols _sidata and _sdata are not usual variables but symbols created in the linker script. In order access their value an Ampersand is needed.</td>
+                                    <td>[Line:4-5]</td>
+                                    <td>Here pSRC is assigned the starting address of data and pDST is assigned the ending address of data. Notice that an ampersand symbol is used for the symbols. This is due to the fact that the symbols _sidata and _sdata are not usual variables but symbols created in the linker script. In order access their value an Ampersand is needed.</td>
                                 </tr>
                                 <tr>
-                                    <td>[Line:7-10] Each Value of .data in the RAM memory is overwritten with the values from .data in FLASH</td>
+                                    <td>[Line:7-10]</td>
+                                    <td>Each Value of .data in the RAM memory is overwritten with the values from .data in FLASH, thereby copying .data from FLASH to RAM.</td>
                                 </tr>
                                 <tr>
-                                    <td>[Line:12-14] All values of the bss section are assigned with zeroes.</td>
+                                    <td>[Line:12-14]</td>
+                                    <td>All values of the bss section are assigned with zeroes.</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td>[Line:10-23]</td>
+                                    <td>An endless loop, that will be entered ones an interrupt handler is called which has not been initialized. This is a common method to set up a basic program without having to define each handler.</td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="Makefile">Makefile</a></h2>
+
+                        <h2 class="code-line" data-line-start=25 data-line-end=26><a id="blinky">Blinky - Project</a></h2>
+                        <div class="box">
+                            <img src="images/simple_blink_proj_main.png">
+                        </div>
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="share_repo">Code and Documentation</a></h2>
                         If you're interested in seeing how this project was made, please check out the source code and documentation. All the code is available for you to view, and the documentation goes into detail about how everything works. Thanks for your interest!</br></br>
