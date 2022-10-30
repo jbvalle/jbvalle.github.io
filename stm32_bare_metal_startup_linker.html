@@ -218,18 +218,22 @@
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>The code above defines:</th>
+                                    <th></th>
+                                    <th>The code above defines</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>[Line:1] the first entry point of the microcontroller, the reset_handler which handles the main hardware and software initializations</td>
+                                    <td>[Line:1] </td>
+                                    <td>the first entry point of the microcontroller, the reset_handler which handles the main hardware and software initializations</td>
                                 </tr>
                                 <tr>
-                                    <td>[Line:4] the top address of the stack, this is required by the manufacturer</td>
+                                    <td>[Line:4]</td>
+                                    <td>the top address of the stack, this is required by the manufacturer</td>
                                 </tr>
                                 <tr>
-                                    <td>[Line:7] as well as the actual memory section. This section defines that RAM memory has read | write | execute rights, with a starting address at 0x20000000 with a total size of 96KB. Additionally FLASH is defined to have read | execute rights, with a starting address at 0x08000000 and a total size of 512KB. All these information is specific to the STM32F401RE microcontroller.</td>
+                                    <td>[Line:7]</td>
+                                    <td>as well as the actual memory section. This section defines that RAM memory has read | write | execute rights, with a starting address at 0x20000000 with a total size of 96KB. Additionally FLASH is defined to have read | execute rights, with a starting address at 0x08000000 and a total size of 512KB. All these information is specific to the STM32F401RE microcontroller.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -248,28 +252,28 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:2] This is the Region Section, which tells the linker which parts of the code should be linked together</td>
+                                    <td>[Line:2]</td>
+                                    <td>This is the Region Section, which tells the linker which parts of the code should be linked together</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:4] The Code Sections which are associated with the .isr_vector symbol will be linked together and placed in the FLASH memory</td>
+                                    <td>[Line:4]</td>
+                                    <td>The Code Sections which are associated with the .isr_vector symbol will be linked together and placed in the FLASH memory</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:9] The Code Sections associated with .text and .rodata are linked together, meaning the actual code and read only memory such as constants will be placed in the .text memory section in FLASH</td>
+                                    <td>[Line:9]</td>
+                                    <td>The Code Sections associated with .text and .rodata are linked together, meaning the actual code and read only memory such as constants will be placed in the .text memory section in FLASH</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:19] This Line writes the starting address of the .data section into the symbol _sidata, this is lated used to copy the data section from FLASH to RAM</td>
+                                    <td>[Line:19]</td>
+                                    <td>This Line writes the starting address of the .data section into the symbol _sidata, this is lated used to copy the data section from FLASH to RAM</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:21] All .data sections, meaning all initialized global and local static variables will be placed in a united .data section. Line 29 tells the linker that during loading .data will be placed in the FLASH and later in the SRAM memory during runtime. Additionally _sdata and edata are initialized denoting the staring and ending address of .data, which are are lated used in the reset handler to copy data from FLASH to RAM.</td>
+                                    <td>[Line:21]</td>
+                                    <td>All .data sections, meaning all initialized global and local static variables will be placed in a united .data section. Line 29 tells the linker that during loading .data will be placed in the FLASH and later in the SRAM memory during runtime. Additionally _sdata and edata are initialized denoting the staring and ending address of .data, which are are lated used in the reset handler to copy data from FLASH to RAM.</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>[Line:31] All .bss sections, meaning all uninitialized global and local variables will be linked together in a .bss section in SRAM. Additionally _sbss and ebss are initialized denoting the staring and ending address of .bss, which are are lated used in the reset handler to initialized previously uninitialized values with zero.</td>
+                                    <td>[Line:31]</td>
+                                    <td>All .bss sections, meaning all uninitialized global and local variables will be linked together in a .bss section in SRAM. Additionally _sbss and ebss are initialized denoting the staring and ending address of .bss, which are are lated used in the reset handler to initialized previously uninitialized values with zero.</td>
                                 </tr>
                             </tbody>
                         </table>
