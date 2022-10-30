@@ -215,7 +215,7 @@
                         </div>
 
 
-                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="text">The following code contains the actual code of the linker script used in this example:</a></h3>
+                        <h5>The following code contains the actual code of the linker script used in this example</h5>
 
                         <div class="box">
                             <img src="images/Linker_script_memory.png">
@@ -325,7 +325,8 @@
                             </tbody>
                         </table> 
 
-                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="">The following code contains the actual code of the startup file used in this example:</a></h3>
+
+                        <h5>The following code contains the actual code of the linker script used in this example</h5>
                         <div class="box">
                             <img src="images/prototypes.png">
                         </div>
@@ -480,6 +481,19 @@
 If you're working on register level programming for an embedded system, one thing you might want to consider is using struct pointers that are assigned with fixed addresses. This can be helpful in a number of ways. For one, it can make your code more readable. When you're working with a lot of registers, it can be difficult to keep track of what each one is used for. But if you give each register a meaningful name and then access it through a pointer, it can be much easier to understand what your code is doing. Another advantage is that it can make your code more efficient. If you know the address of a register, you can directly access it without having to go through any intermediate steps. This can be a significant speed boost, especially if you're working with time-critical code.
 
 </br></br></br>A peripheral can be defined using a struct with each of its registers initialized as the struct's members. The following code is the struct data structure of the STM32F401RE GPIO Peripheral.
+                        <div class="box">
+                            <img src="images/gpio_struct.png">
+                        </div>
+                        Now that the registers have been initialized, an instance of that struct can be assigned a fixed address from the system's memory, defined in the reference manual. A possible method is by instantiate a struct pointer which is then assigned with an address, as illustrated by the following code:
+                        <pre>
+                            <code>STRUCT_NAME * const defined_instance = (STRUCT_NAME *) ADDRESS;</code>
+                        </pre>
+                        To instantiate the GPIO Peripheral from the previously shown GPIOx_t using the this method, we can now write:
+                        <pre>
+                            <code>GPIOx_t * const GPIOA = (GPIOx_t *)0x40020000; // This address is specific to STM32F401RE</code>
+                        </pre>
+                        This code instantiates a struct pointers with the pointer being constant, meaning the address should not be changed. The value of the address the pointer is pointing too however can be accessed and manipulated, which is what we want for our purposes.
+
 
                         <div class="box">
                             <img src="images/simple_blink_proj_main.png">
