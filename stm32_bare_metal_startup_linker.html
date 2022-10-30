@@ -198,13 +198,20 @@
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="linker_script">Linker - Script</a></h2>
                         The purpose of the linker script is to link together various pieces of code and data to form a complete executable. Its role is to provide the necessary runtime environment for the system to function properly. In order to write a linker script the GNU linker script language is used, which is actually a subset of the C programming language.</br></br>
                         The linker itself is a program integrated in the GNU Compiler Collection (GCC), which utilizes the linker script to determine how to map the contents of an executable file into memory. It controls the memory layout of an executable, including where in memory the executable’s code and data are placed. Additionally, it controls the linking process itself.
-A Linker Script contains multiple sections, the memory section the define various memories in the systems and their attributes. The attribute of a memory includes its size, its starting address, its type and its reading permissions. The actual documentation for those sections can be looked up in the official GNU Documentation. A snippet of the documentation describing the memory section is provided in the following image.</br></br>
+                        A Linker Script contains multiple sections, the memory section the define various memories in the systems and their attributes. The attribute of a memory includes its size, its starting address, its type and its reading permissions. The actual documentation for those sections can be looked up in the official GNU Documentation. A snippet of the documentation describing the memory section is provided in the following image.</br></br>
 
                         <div class="box">
-                            <img src="images/Linker_script_memory.png">
+                            <img src="images/memory_sec_doc.png">
+                            <figcaption>GNU Linker Documentation of Memory Section</figcaption>
+                        </div>
+                        The regions sections defines the various regions in the memories. A region is a contiguous block of memory with a specific purpose. For example, a region may be created for the code, data or stack. This sections tell the linker how to link the various pieces of code and data together. A snippet of the documentation describing the regions section is provided in the following image.
+                        <div class="box">
+                            <img src="images/regions_sec_doc.png">
+                            <figcaption>GNU Linker Documentation of Region Section</figcaption>
                         </div>
 
-                        </br></br></br>The following code contains the actual code of the linker script used in this example:
+
+                        </br>The following code contains the actual code of the linker script used in this example:
                         <div class="box">
                             <img src="images/Linker_script_memory.png">
                         </div>
@@ -262,6 +269,46 @@ A Linker Script contains multiple sections, the memory section the define variou
 
 
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="startup">Startup File</a></h2>
+                        The Startup File is the first piece of code that runs when an embedded system is turned on. It is responsible for initializing the hardware and software of a system. The startup file is typically written in C or assembly language. In this example, C language was used.</br></br>
+
+                        The two main parts of a startup file is</br>
+                        <ul>
+                            <li>the vector table and</li>
+                            <li>the startup code, defined in the Reset Handler</li>
+                        </ul>
+
+                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="startup">The Vector Table</a></h3>
+
+                        The vector table is a table of pointers to the interrupt handler functions. 
+                        In embedded systems, a vector table is a data structure that contains a list of pointers to functions that the processor can execute. The vector table is typically located at the beginning of memory and is used by the processor to determine which functions to execute when an interrupt occurs. When an interrupt occurs, the processor looks up the address of the function to execute in the vector table, and then branches to that address. This allows the processor to execute the correct function for the type of interrupt that occurred. The vector table is a critical part of an embedded system and must be carefully designed to ensure that the processor can correctly handle all types of interrupts that may occur.</br></br>
+
+                        <h3 class="code-line" data-line-start=25 data-line-end=26><a id="startup">The Reset Handler</a></h3>
+                   
+The startup code is the code that initializes the hardware and software of the system.</br></br>
+One of the most common ways to reset an embedded system today is through the use of a reset handler. A reset handler is a piece of code that is executed when the system is reset. This code can perform any necessary actions to ensure that the system is brought back to a known state. One common use for a reset handler is to initialize all of the hardware and software components of the system. This ensures that everything is in a known state when the system starts up again. Reset handlers can also be used to perform other tasks such as logging the reset event or sending a notification to a remote monitoring system. The main tasks of a Reset Handler implemented in this example are:</br>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Copy Data from flash to ram</td>
+                                    <td>All data sections meaning all initialized global and local static data will usually be flashed onto the flash memory first. As data is part of the systems working memory, it has to be copied to the RAM to be able to apply read and write instructions to that memory.</td>
+                                </tr>
+                                <tr>
+                                    <td>Initialize the bss section with zeroes</td>
+                                    <td> The BSS section contains all uninitialized data. Therefore all its containing values will be assigned with zeroes</td>
+                                </tr>
+                                <tr>
+                                    <td>Call main function</td>
+                                    <td>The actual main entry point of the program will be called</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+
                         <div class="box">
                             <img src="images/prototypes.png">
                         </div>
