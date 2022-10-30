@@ -424,7 +424,11 @@
                         <h2 class="code-line" data-line-start=25 data-line-end=26><a id="makefile">Makefile</a></h2>
                         A makefile is a file that contains a set of instructions that tell a computer how to compile and link a program. In embedded systems, a makefile is often used to build a firmware image. A firmware image is a binary file that contains all of the code and data necessary to run a piece of hardware. In embedded systems, this binary file is often stored in flash memory. When you create a new project, you will typically start with a blank makefile. </br></br></br>
 
-                        <h5>The following code contains the actual code of the startup file used in this example:</h5>
+                        <h5>The following code contains the actual code of the makefile used in this example:</h5>
+                        <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Upcoming!</strong> A new blog post explaining Makefiles will be published soon, stay tuned!
+</div>
 
 
 
@@ -491,10 +495,6 @@
                                     <td>[Line:24-25]</td>
                                     <td>These are the paths to the openOCD scripts used to tell openOCD how to connect and communicate with the on chip ST-Link V2 debugger, as well as the debugger unit on the STM32F401RE.</td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
                             </tbody>
                         </table>
 
@@ -523,24 +523,8 @@
                                     <td>These are makefile rules, telling make to generate object files using the c source files. If the Object file directory is not present, the "mkobj" target is called which will create a directory needed for compilation</td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td>[Line:38-39]</td>
+                                    <td>This makefile rule, tells make how to generate the target using object file, similarly to mkobj it will call mkdeb if DEB_DIR is not available</td>
                                 </tr>
                             </tbody>
                         </table>
